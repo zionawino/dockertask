@@ -16,4 +16,4 @@
 
 5. **Run the Application:**
    - Use Docker Compose to start both the NestJS app and Nginx container.
-   - Test the application by visiting `http://localhost`.
+   - Test the application by visiting `http://localhost`. test

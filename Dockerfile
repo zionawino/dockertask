@@ -1,6 +1,6 @@
 # ---- Base Stage ----
 # Use LTS version of Node.js (18-alpine is lightweight and recommended)
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 
 # Set working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 # Copy package.json and package-lock.json (for better caching)
 COPY package*.json ./
 
-# Use npm ci for CI/CD (if package-lock.json is available)
+# Use npm ci for CI/CD (if package-lock.jsona is available)
 RUN npm ci --only=production
 
 # ---- Build Stage ----

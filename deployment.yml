@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuzu-nestjs-deployment
+spec:
+  replicas: 3  # Number of pods (simulating the multi-node scenario)
+  selector:
+    matchLabels:
+      app: zuzu-nestjs
+  template:
+    metadata:
+      labels:
+        app: zuzu-nestjs
+    spec:
+      containers:
+      - name: zuzu-nestjs-container
+        image: zuzu_nestjs_local:latest
+        ports:
+        - containerPort: 3000  

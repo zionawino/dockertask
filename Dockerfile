@@ -12,7 +12,7 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # ---- Build Stage ----
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ COPY --from=base /app/node_modules ./node_modules
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN npm install -g @nestjs/cli && npm run build
 
 # ---- Final Stage ----
 FROM node:18-alpine AS final
